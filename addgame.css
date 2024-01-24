@@ -1,0 +1,55 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: Arial;
+}
+
+nav {
+    background: #5c5c5c;
+    height: 80px;
+    width: 100%;
+}
+
+nav ul {
+    text-align: center;
+    font-weight: bold;
+}
+
+nav ul li {
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+nav ul li a {
+    color: white;
+    font-size: 17px;
+    padding: 7px 150px;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+
+a:hover {
+
+    background: rgb(163, 163, 163);
+    transition: .2s;
+}
+
+.addgame {
+    text-decoration: underline;
+}
+
+@media only screen and (max-width: 1000px) {
+    nav ul li a {
+        color: white;
+        font-size: 17px;
+        padding: 7px 15px;
+        border-radius: 5px;
+        text-transform: uppercase; 
+    }
+}

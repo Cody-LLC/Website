@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="'ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinking Games</title>
+    <link rel="stylesheet" href="addgame.css">
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <ul>
+                <li><a href="index.html">Games</a></li>
+                <li><a href="gom.html">Game of Month</a></li>
+                <li><a href="addgame.html" class="addgame">Add Game</a></li>
+            </ul>
+        </nav>
+    </header>
+    <ul id="messages"></ul>
+    <input id="message_input" autocomplete="off" /><button onclick="sendMessage()">Send</button>
+
+    <script>
+        const socket = new WebSocket('ws://localhost:3000');
+    
+        socket.addEventListener('open', (event) => {
+            console.log('Connected to server');
+        });
+    
+        socket.addEventListener('message', (event) => {
+            const ul = document.getElementById('messages');
+            const li = document.createElement('li');
+            li.appendChild(document.createTextNode(event.data));
+            ul.appendChild(li);
+        });
+    
+        function sendMessage() {
+            const messageInput = document.getElementById('message_input');
+            const message = messageInput.value;
+            socket.send(message);
+            messageInput.value = 'hello';
+        }
+    </script>
+</body>
+</html>
